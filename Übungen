@@ -1,0 +1,55 @@
+Übung 1: Projektstruktur analysieren
+
+Aufgabe: Was sind die Hauptprobleme dieser Struktur? Wie würdest du sie umgestalten?
+
+project/
+├── notebook_final.ipynb
+├── data.csv
+├── model.pkl
+└── script_v2_final_final.py
+
+
+Übung 2: DRY vs. Copy-Paste
+Aufgabe:
+Im Code findest du folgenden Ausschnitt dreimal:
+
+df["date"] = pd.to_datetime(df["date"])
+df = df.dropna()
+df = df[df["value"] > 0]
+
+Wie kann man das verbessern ? 
+
+
+Übung 3: Code Smells erkennen
+
+Aufgabe:
+Lies folgenden Code:
+Welche Code Smells erkennst du?
+
+def analyze(df, a, b, c, d, e, f):
+    result = []
+    for i in range(len(df)):
+        if df.iloc[i][a] > 0 and df.iloc[i][b] != None:
+            if df.iloc[i][c] == "OK":
+                result.append(df.iloc[i][d] + df.iloc[i][e] + df.iloc[i][f])
+    return result
+
+Übung 4: Refactoring anwenden
+
+Aufgabe:
+Refaktoriere den folgenden Code:
+
+if status == "ok":
+    if user.is_active:
+        if not user.is_banned:
+            do_something()
+
+ Übung 5: Test schreiben (TDD)
+
+Aufgabe:
+Du willst eine Funktion remove_negatives() testen, die alle negativen Zahlen aus einer Liste entfernt.
+Schreibe zuerst den Test:
+
+def test_remove_negatives():
+    assert remove_negatives([1, -2, 3, -4]) == [1, 3]
+
